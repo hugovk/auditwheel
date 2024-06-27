@@ -49,7 +49,7 @@ else:
 DOCKER_CONTAINER_NAME = "auditwheel-test-anylinux"
 PYTHON_MAJ_MIN = [str(i) for i in sys.version_info[:2]]
 PYTHON_ABI_MAJ_MIN = "".join(PYTHON_MAJ_MIN)
-PYTHON_ABI_FLAGS = "m" if sys.version_info.minor < 8 else ""
+PYTHON_ABI_FLAGS = "m" if sys.version_info < (3, 8) else ""
 PYTHON_ABI = f"cp{PYTHON_ABI_MAJ_MIN}-cp{PYTHON_ABI_MAJ_MIN}{PYTHON_ABI_FLAGS}"
 PYTHON_IMAGE_TAG = ".".join(PYTHON_MAJ_MIN) + (
     "-rc" if PYTHON_MAJ_MIN == ["3", "12"] else ""
